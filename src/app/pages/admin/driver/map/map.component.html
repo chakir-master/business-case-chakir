@@ -1,0 +1,51 @@
+<div class="row">
+    <div class="" [ngClass]="driving && showBtn ? 'col-md-9' : 'col-md-12'">
+      <nb-card class="">
+        <nb-card-header>Map</nb-card-header>
+        <nb-card-body class="mapi">
+            <!-- <google-map [center]="position" [zoom]="8" width="100%" height="36.5625rem">
+                <map-marker [position]="position"></map-marker>
+            </google-map> -->
+            <!-- <div leaflet [leafletOptions]="options"></div> -->
+        </nb-card-body>
+        <nb-card-body class="mapi">
+            <google-map [center]="position" [zoom]="15" width="100%" height="36.5625rem">
+                <map-marker [position]="position" [label]="'Current location'" [title]="'current location'" *ngIf="driving"></map-marker>
+                <map-marker [position]="packageDestinationLocation" [label]="'Package destination'" [title]="'Package destination'" *ngIf="(driving && showBtn) || tracking"></map-marker>
+                <map-marker [position]="packageSourceLocation" [label]="'Package source'" [title]="'Package source'" *ngIf="(driving && showBtn) || tracking"></map-marker>
+                <map-marker [position]="deliveryLocation" [label]="'Delivery location'" [title]="'Delivery'" *ngIf="tracking"></map-marker>
+            </google-map>
+            <!-- <div leaflet [leafletOptions]="options"></div> -->
+        </nb-card-body>
+        <nb-card-body *ngIf="driving && showBtn">
+          <b>Current driver location</b> : <pre>{{ currentLocation | json }}</pre> <br><br>
+          <b>Current package source location</b> : <pre>{{ packageSourceLocation | json }}</pre>  <br><br>
+          <b>Current package destination location</b> : <pre>{{ packageDestinationLocation | json }}</pre><br><br>
+          <b>Delivery location</b> : <pre>{{ deliveryLocation | json}}</pre>
+        </nb-card-body>
+      </nb-card>
+    </div>
+    <div class="col-md-3 " *ngIf="driving && showBtn">
+      <nb-card class="">
+        <nb-card-body >
+            <button [disabled]="!statusOpen" nbButton [status]="'primary'" hero [size]="'giant'" (click)="changeStatus('PICKED-UP')">
+              Picked Up
+            </button>
+            <br><br>
+            <button [disabled]="!statusPickedUp" nbButton [status]="'warning'" hero [size]="'giant'" (click)="changeStatus('IN-TRANSIT')">
+              In transit
+            </button>
+            <br><br>
+            <button [disabled]="!statusInTransit" nbButton [status]="'success'" hero [size]="'giant'" (click)="changeStatus('DELIVERED')">
+              Delivered
+            </button>
+            <br><br>
+            <button [disabled]="!statusInTransit" nbButton [status]="'danger'" hero [size]="'giant'" (click)="changeStatus('FAILED')">
+                &nbsp; &nbsp; Failed &nbsp; &nbsp; 
+            </button>
+            <!-- <div class="buttons-row">
+            </div> -->
+        </nb-card-body>
+      </nb-card>
+    </div>
+</div>

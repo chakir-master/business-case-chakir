@@ -1,0 +1,27 @@
+<div class="row">
+    <div class="col-md-12">
+      <nb-card class="inline-form-card">
+        <nb-card-header>Package details</nb-card-header>
+        <nb-card-body *ngIf="loaded">
+            Description : {{ package.description }} <br> 
+            active_delivery_id : {{ package.active_delivery_id }} <br>
+            ID : {{ package._id }} <br>
+            Depth : {{ package.depth }} <br> 
+            from_address : {{ package.from_address }} <br>
+            from_location : ( {{ package.from_location.long }} , {{ package.from_location.lat }} ) <br>
+            from_name : {{ package.from_name }} <br>
+            height : {{ package.height }} <br>
+            to_address : {{ package.to_address }} <br>
+            to_location : ( {{ package.to_location.long }} , {{ package.to_location.lat }} ) <br>
+            to_name : {{ package.to_name }} <br>
+            weight : {{ package.weight }} <br>
+            width : {{ package.width }} <br>
+        </nb-card-body>
+        <nb-card-body *ngIf="!loaded">
+            <!-- Description : {{package.description}} -->
+            NO DATA...
+        </nb-card-body>
+      </nb-card>
+    </div>
+</div>
+

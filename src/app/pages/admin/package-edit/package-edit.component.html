@@ -1,0 +1,101 @@
+<div class="row">
+    <div class="col-md-12">
+        <nb-card>
+            <nb-card-header>Create package</nb-card-header>
+            <nb-card-body>
+                <nb-alert *ngIf="error" status="danger">{{ error }}</nb-alert>
+                <form [formGroup]="form" (ngSubmit)="onSubmit()" >
+                    <div class="form-group row">
+                        <label for="description" class="label col-sm-2 col-form-label">Description</label>
+                        <div class="col-sm-10">
+                            <textarea nbInput formControlName="description" placeholder="Description" fullWidth></textarea>
+                        </div>
+                    </div>
+
+                    <div class="form-group row">
+                        <label for="weight" class="label col-sm-2 col-form-label">Weight</label>
+                        <div class="col-sm-10">
+                            <input type="number" nbInput fullWidth formControlName="weight" placeholder="Weight">
+                        </div>
+                    </div>
+
+                    <div class="form-group row">
+                        <label for="width" class="label col-sm-2 col-form-label">Width</label>
+                        <div class="col-sm-10">
+                            <input type="number" nbInput fullWidth formControlName="width" placeholder="Width">
+                        </div>
+                    </div>
+
+                    <div class="form-group row">
+                        <label for="height" class="label col-sm-2 col-form-label">Height</label>
+                        <div class="col-sm-10">
+                            <input type="number" nbInput fullWidth formControlName="height" placeholder="Height">
+                        </div>
+                    </div>
+
+                    <div class="form-group row">
+                        <label for="depth" class="label col-sm-2 col-form-label">Depth</label>
+                        <div class="col-sm-10">
+                            <input type="number" nbInput fullWidth formControlName="depth" placeholder="Depth">
+                        </div>
+                    </div>
+                    
+                    <div class="form-group row">
+                        <label for="lat" class="label col-sm-2 col-form-label">From Location</label>
+                        <div class="col-sm-5">
+                            <input type="number" nbInput fullWidth formControlName="from_location_long" placeholder="From Longitude">
+                        </div>
+                        <div class="col-sm-5">
+                            <input type="number" nbInput fullWidth formControlName="from_location_lat" placeholder="From Latitude">
+                        </div>
+                    </div>
+
+                    <div class="form-group row">
+                        <label for="from_name" class="label col-sm-2 col-form-label">From Name</label>
+                        <div class="col-sm-10">
+                            <input type="text" nbInput formControlName="from_name" placeholder="From Name" fullWidth>
+                        </div>
+                    </div>
+
+                    <div class="form-group row">
+                        <label for="from_address" class="label col-sm-2 col-form-label">From Address</label>
+                        <div class="col-sm-10">
+                            <textarea nbInput formControlName="from_address" placeholder="From Address" fullWidth></textarea>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group row">
+                        <label for="to_lat" class="label col-sm-2 col-form-label">To Location</label>
+                        <div class="col-sm-5">
+                            <input type="number" nbInput fullWidth formControlName="to_location_long" placeholder="To Longitude">
+                        </div>
+                        <div class="col-sm-5">
+                            <input type="number" nbInput fullWidth formControlName="to_location_lat" placeholder="To Latitude">
+                        </div>
+                    </div>
+
+                    <div class="form-group row">
+                        <label for="to_name" class="label col-sm-2 col-form-label">To Name</label>
+                        <div class="col-sm-10">
+                            <input type="text" nbInput formControlName="to_name" placeholder="To Name" fullWidth>
+                        </div>
+                    </div>
+
+                    <div class="form-group row">
+                        <label for="to_address" class="label col-sm-2 col-form-label">To Address</label>
+                        <div class="col-sm-10">
+                            <textarea nbInput formControlName="to_address" placeholder="To Address" fullWidth></textarea>
+                        </div>
+                    </div>
+
+                    <!-- Submit -->
+                    <div class="form-group row">
+                        <div class="offset-sm-2 col-sm-10">
+                            <button type="submit" [disabled]="loading" nbButton  status="primary" [nbSpinner]="loading" nbSpinnerStatus="success" >Submit</button>
+                        </div>
+                    </div>
+                </form>
+            </nb-card-body>
+        </nb-card>
+    </div>
+</div>

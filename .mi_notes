@@ -1,0 +1,38 @@
+ng generate module /pages/admin --routing
+ng generate component /pages/admin
+ng generate component /pages/admin/home
+ng generate component /pages/admin/home/package-list
+ng generate component /pages/admin/home/delivery-list
+ng generate component /pages/admin/package-edit
+
+ng generate component /pages/admin/driver
+ng generate component /pages/admin/driver/map 
+ng generate component /pages/admin/driver/details
+ng generate component /pages/admin/driver/details/package 
+ng generate component /pages/admin/driver/details/delivery
+
+ng generate component /pages/admin/tracker
+
+ng generate module /pages/driver --routing &&
+ng generate component /pages/driver &&
+ng generate component /pages/driver/details &&
+ng generate component /pages/driver/map
+
+ng generate component /pages/driver
+ng generate component /pages/tracker
+
+Run backend : npm run start:server ["http://127.0.0.1:3000"]
+Run Front : ng server ["http://localhost:4200"]
+
+ng generate service /services/base/crud
+ng generate service /services/base/resource-action
+ng generate service /services/package
+ng generate service /services/web-socket
+ng generate service /services/location
+
+62da86e18edc760605323293
+62dcf2774fef1a64e6c584b0
+
+62da8cfb8ac6b6894b668df0
+62de764369d54ac83a3c2adf
+	
