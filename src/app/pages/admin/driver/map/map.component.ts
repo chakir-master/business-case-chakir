@@ -73,12 +73,14 @@ export class MapComponent implements OnInit, OnDestroy {
 
       // Send location_update websocket event
       // if(this.deliveryStatusValue.toLowerCase() == 'in-transit') {
-      this.deliveryService.location_changed.next(
-        {
-          delivery_id: this.delivery._id,
-          location: this.currentLocation,
+        if(this.delivery) {          
+          this.deliveryService.location_changed.next(
+            {
+              delivery_id: this.delivery._id,
+              location: this.currentLocation,
+            }
+          );
         }
-      );
       // }
     });  
 
